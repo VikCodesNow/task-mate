@@ -1,0 +1,9 @@
+.cardparent {
+    padding: 10px;
+    background-color: beige;
+    height: 180px;
+    width: 200px;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(50, 47, 47, 0.5);
+}
