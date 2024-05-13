@@ -11,7 +11,7 @@ function UnpinnedTasks({ unpinnedtasks, updateTasks }) {
   return (
     <>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <h1 style={{ fontWeight: "bold", margin: "auto" }}>TASKS</h1>
+        <h1 style={{ fontWeight: "bold", margin: "auto" }}>Vercel Test</h1>
         <span
           style={{ float: "right", marginRight: "3rem" }}
           onClick={() => toggleVisibility(!visible)}
