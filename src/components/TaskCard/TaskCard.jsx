@@ -2,10 +2,10 @@ import styles from "./taskcard.module.css";
 
 import TaskCardControls from "../TaskCardControls/TaskCardControls";
 import TaskDetails from "../TaskDetails/TaskDetails";
-function TaskCard({ title, description }) {
+function TaskCard({ id, title, description, pinned, updateTasks }) {
   return (
     <div className={styles.cardparent}>
-      <TaskCardControls />
+      <TaskCardControls updateTasks={updateTasks} pinned={pinned} id={id} />
       <TaskDetails title={title} description={description} />
     </div>
   );
