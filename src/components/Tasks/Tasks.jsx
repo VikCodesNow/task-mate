@@ -4,9 +4,9 @@ import styles from "./tasks.module.css";
 import { TaskContext } from "../../App";
 import { useContext } from "react";
 function Tasks({ updateTasks }) {
-  const tasks = useContext(TaskContext);
-  const pinnedTasks = tasks.filter((t) => t.pinned === true);
-  const unpinnedtasks = tasks.filter((t) => t.pinned === false);
+  const data = useContext(TaskContext);
+  const pinnedTasks = data.tasks.filter((t) => t.pinned === true);
+  const unpinnedtasks = data.tasks.filter((t) => t.pinned === false);
   return (
     <div className={styles.tasksParent}>
       <PinnedTasks pinnedTasks={pinnedTasks} updateTasks={updateTasks} />

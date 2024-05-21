@@ -11,7 +11,7 @@ const TaskCardControls = ({ id, pinned, updateTasks }) => {
 
   const handlePin = (id) => {
     console.log("Pinning for ", id);
-    updateTasks(id, "PIN");
+   // updateTasks(id, "PIN");
   };
 
   const handleEdit = (id) => {
