@@ -1,6 +1,8 @@
 import styles from "./settings.module.css";
-import { useRef, useContext } from "react";
+import { useRef, useContext, useEffect } from "react";
 import { TaskContext } from "../../App";
+import emailjs from "@emailjs/browser";
+
 function Settings({ updateConfig }) {
   const emailReminderRef = useRef();
   const emailIdRef = useRef();
@@ -14,6 +16,9 @@ function Settings({ updateConfig }) {
   const low_duration_ref = useRef();
   const low_duration_type = useRef();
 
+  useEffect(() => {
+    emailjs.init("USE_ENV_FOR_PUBLIC_KEY");
+  }, []);
   const saveConfig = () => {
     const newConfig = {
       email_alerts: emailReminderRef.current.checked,
@@ -26,6 +31,22 @@ function Settings({ updateConfig }) {
       low_duration_in: low_duration_type.current.value,
     };
     updateConfig(newConfig);
+  };
+
+  const sendEmail = () => {
+   try
+   {
+    console.log("Sending email")
+    emailjs.send("task_mate_service_id", "task_mate_template", {
+      task_name: "test",
+      task_details: "testing",
+      subscriber_email: "vikram.baliga21@gmail.com",
+    });
+    console.log("Success")
+   }
+   catch(err){
+    console.error("Error Occured",err)
+   }
   };
   const data = useContext(TaskContext);
   const currentConfigs = data.configs;
@@ -78,6 +99,7 @@ function Settings({ updateConfig }) {
         </p>
       </div>
       <button onClick={saveConfig}>Save</button>
+      <button onClick={sendEmail}>Test Email</button>
     </div>
   );
 }
